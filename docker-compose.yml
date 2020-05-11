@@ -1,0 +1,39 @@
+version: "3.4"
+services:
+  api:
+    build: .
+    command: npm dev
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/challenge
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: challenge
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: challenge
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+networks:
+  backend:
+    driver: bridge
