@@ -1,0 +1,2 @@
+/participant:
+  $ref: ./Participant.yml

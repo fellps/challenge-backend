@@ -4,7 +4,7 @@
   "description": "Full-stack software engineer - Novatics Challenge",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e js,yaml server.js",
+    "dev": "nodemon -e js,yml src/server.js",
     "test": "mocha --require sucrase/register ./test/**/*.js --timeout 20000 --exit"
   },
   "author": "Fellipe Vasconcelos",
@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "module-alias": "^2.2.2",
     "swagger-parser": "^9.0.1",
     "swagger-routes-express": "^3.1.2",
     "swagger-ui-express": "^4.1.4",
@@ -20,10 +21,15 @@
   },
   "devDependencies": {
     "eslint": "^7.0.0",
+    "eslint-plugin-import-helpers": "^1.0.2",
     "mocha": "^7.1.2",
     "nodemon": "^2.0.3",
     "should": "^13.2.3",
     "sucrase": "^3.14.0",
     "supertest": "^4.0.2"
+  },
+  "_moduleAliases": {
+    "@config": "./src/config",
+    "@controllers": "./src/controllers"
   }
 }

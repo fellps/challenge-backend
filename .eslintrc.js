@@ -13,6 +13,9 @@ module.exports = {
     'ecmaVersion': 11,
     'sourceType': 'module'
   },
+  'plugins': [
+    'eslint-plugin-import-helpers'
+  ],
   'rules': {
     'indent': [
       'error',
@@ -30,6 +33,19 @@ module.exports = {
     'semi': [
       'error',
       'never'
+    ],
+    'import-helpers/order-imports': [
+      'warn',
+      { // example configuration
+        newlinesBetween: 'always',
+        groups: [
+          'module',
+          '/^~/',
+          '/^@/',
+          ['parent', 'sibling', 'index'],
+        ],
+        alphabetize: { order: 'asc', ignoreCase: true },
+      },
     ],
     'require-atomic-updates': 'off'
   }

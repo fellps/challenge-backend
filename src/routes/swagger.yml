@@ -1,0 +1,19 @@
+swagger: "2.0"
+info:
+  description: Full-stack software engineer - Novatics Challenge
+  title: Novatics Challenge
+  version: "1.0.0"
+host: localhost:3000
+basePath: /v1
+schemes:
+- http
+- https
+consumes:
+- application/x-www-form-urlencoded
+- application/json
+produces:
+- application/json
+paths:
+  $ref: ./paths/index.yml
+definitions:
+  $ref: ./definitions/index.yml
