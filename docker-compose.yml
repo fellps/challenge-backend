@@ -2,7 +2,7 @@ version: "3.4"
 services:
   api:
     build: .
-    command: npm dev
+    command: npm run dev
     restart: always
     depends_on:
       - mongodb

@@ -1,8 +1,8 @@
-const ParticipantController = {
-  kudo: async (req, res) => {
-    console.log(req.body)
-    res.send({ error: false })
-  }
+const kudo = async (req, res) => {
+  console.log('==============')
+  return res.send({ error: false })
 }
 
-export default ParticipantController
+export {
+  kudo
+}
