@@ -56,5 +56,14 @@ Swagger provides documentation that can be accessed at:
  - [ESlint](https://eslint.org/)
  - [NPM](https://www.npmjs.com/)
  - (Optional) [Docker](https://www.docker.com/)
+
 ## Security
  - The API uses **JSON Web Token (JWT)** as security in the communication
+
+## Contact
+Feel free to contribute to the project.
+
+Get in touch with me in on [Github](https://github.com/fellps), [Email](mailto:fellipe.fvs@gmail.com) or [Linkedin](https://www.linkedin.com/in/fellipevasconcelos/)
+
+## License
+ - This project is licensed under the MIT License - see the LICENSE.md file for details
