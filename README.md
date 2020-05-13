@@ -1,5 +1,5 @@
 # About this project
-It's a challenge to work as a software engineer at Novatics
+It's a challenge to work as a software engineer at Novatics.
 
 ## Getting Started
 ### Prerequisites
