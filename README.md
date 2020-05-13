@@ -66,4 +66,4 @@ Feel free to contribute to the project.
 Get in touch with me in on [Github](https://github.com/fellps), [Email](mailto:fellipe.fvs@gmail.com) or [Linkedin](https://www.linkedin.com/in/fellipevasconcelos/)
 
 ## License
- - This project is licensed under the MIT License - see the LICENSE.md file for details
+ - This project is licensed under the MIT License, contribute to the project!
