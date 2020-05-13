@@ -6,10 +6,15 @@ const kindsOfActs = Object.freeze({
   Learned: 'learned',
 })
 
-const KudoSchema = new mongoose.Schema({ 
+export const KudoSchema = new mongoose.Schema({ 
   kudo: {
     type: String,
     enum: Object.values(kindsOfActs),
+  },
+  participantId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Participant',
+    required: [true, 'Participant is required']
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

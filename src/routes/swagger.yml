@@ -5,6 +5,12 @@ info:
   version: "1.0.0"
 host: localhost:3000
 basePath: /v1
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: x-access-token
+    in: header
+    description: For accessing the API a valid JWT token must be passed in all the queries in the 'x-access-token' header
 schemes:
 - http
 - https
@@ -14,6 +20,134 @@ consumes:
 produces:
 - application/json
 paths:
-  $ref: ./paths/index.yml
+  /authenticate:
+    post:
+      operationId: login
+      description: Allow user to access security routes
+      parameters:
+      - name: login
+        in: formData
+        description: User login name
+        required: true
+        type: string
+        minLength: 1
+      - name: password
+        in: formData
+        description: User password
+        required: true
+        type: string
+        minLength: 1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: "#/definitions/AuthenticateResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
+  /participants/kudo:
+    post:
+      operationId: kudo
+      security:
+      - Bearer: []
+      description: The brother can give his brooches
+      parameters:
+      - name: kindAct
+        in: formData
+        description: Kind of act
+        required: true
+        type: string
+        minLength: 1
+      - name: participantId
+        in: formData
+        description: Participant id
+        required: true
+        type: string
+        minLength: 1
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
+  /participants:
+    get:
+      operationId: show
+      security:
+      - Bearer: []
+      description: List all participants
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: "#/definitions/DefaultResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+          headers:
+            Content-Type:
+              type: string
+              description: Media type of request
 definitions:
-  $ref: ./definitions/index.yml
+  AuthenticateResponse:
+    required:
+    - message
+    - name
+    - token
+    properties:
+      error:
+        type: boolean
+      name:
+        type: string
+      message:
+        type: string
+      token:
+        type: string
+  DefaultResponse:
+    required:
+    - error
+    - data
+    - message
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+      error:
+        type: boolean
+      message:
+        type: string
+  ErrorResponse:
+    required:
+    - error
+    - message
+    properties:
+      error:
+        type: boolean
+      message:
+        type: string

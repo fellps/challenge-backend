@@ -1,4 +1,0 @@
-DefaultResponse:
-  $ref: ./DefaultResponse.yml
-ErrorResponse:
-  $ref: ./ErrorResponse.yml

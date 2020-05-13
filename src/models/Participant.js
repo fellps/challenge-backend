@@ -2,8 +2,9 @@ import mongoose from 'mongoose'
 
 import { KudoSchema } from './Kudo'
 
-const ParticipantSchema = new mongoose.Schema({ 
-  name: String, 
+export const ParticipantSchema = new mongoose.Schema({ 
+  name: String,
+  image: String,
   kudos: [KudoSchema]
 }, {
   timestamps: true

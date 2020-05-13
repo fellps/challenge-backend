@@ -8,6 +8,9 @@
       "@config": ["src/config"],
       "@config/*": ["src/config/*"],
       "@database": ["src/database"],
+      "@models": ["src/models"],
+      "@models/*": ["src/models/*"],
+      "@middlewares/*": ["src/middlewares/*"],
     },
   },
   "exclude": ["node_modules"]

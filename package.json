@@ -12,12 +12,16 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
     "module-alias": "^2.2.2",
     "mongoose": "^5.9.13",
     "swagger-parser": "^9.0.1",
     "swagger-routes-express": "^3.1.2",
+    "swagger-tools": "^0.10.4",
     "swagger-ui-express": "^4.1.4",
     "winston": "^3.2.1"
   },
@@ -33,6 +37,8 @@
   "_moduleAliases": {
     "@config": "./src/config",
     "@controllers": "./src/controllers",
-    "@database": "./src/database"
+    "@database": "./src/database",
+    "@models": "./src/models",
+    "@middlewares": "./src/middlewares"
   }
 }
