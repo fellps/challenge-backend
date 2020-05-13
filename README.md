@@ -45,6 +45,11 @@ Swagger provides documentation that can be accessed at:
   ```
  ![doc](https://user-images.githubusercontent.com/2119725/81845084-6d1af300-9526-11ea-9007-ce3b3f53049e.png)
 
+## Tests
+ ```
+npm run test
+ ```
+ 
 ## Features
  - User login
  - Lists all BBB participants
