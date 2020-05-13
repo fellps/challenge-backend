@@ -33,7 +33,6 @@ const kudo = async (req, res) => {
 
       const kudoCreated = await kudo.save()
 
-      console.log(kudoCreated)
       if (!kudoCreated)
         return res.status(400).send({ 
           error: true, 

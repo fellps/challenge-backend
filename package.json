@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js,yml src/server.js",
-    "test": "mocha --require sucrase/register ./test/**/*.js --timeout 20000 --exit"
+    "test": "mocha --require sucrase/register ./tests/**/*.js --timeout 20000 --exit"
   },
   "author": "Fellipe Vasconcelos",
   "license": "ISC",
