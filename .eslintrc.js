@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 module.exports = {
   'env': {
-    'es6': true,
+    'es2020': true,
     'node': true
   },
   'extends': 'eslint:recommended',

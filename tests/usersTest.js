@@ -1,35 +1,21 @@
-/* global after before describe it */
+/* global before describe it */
 process.env.TEST_MODE = true
 import 'module-alias/register'
 import should from 'should'
 import request from 'supertest'
 
-import app from '../src/server'
-
-const validUser = {
-  login: 'tiago@bbb.com',
-  password: '123456'
-}
-
-const invalidUser = {
-  login: 'leifert@bbb.com',
-  password: '123456'
-}
+import app from '../src/app'
+import { validUser, invalidUser } from './mockData/Users'
 
 describe('Novatics Challenge', () => {
   let server
 
   before(async () => {
-    server = await app
-    server.listen(3001)
-  })
-
-  after(() => {
-    server.close()
+    server = await app()
   })
 
   describe('Login', () => {
-    it('Should log in user and return a valid token', async () => {
+    it('Should log in user and return a valid token', done => {
       request(server)
         .post('/v1/authenticate')
         .send({ login: validUser.login, password: validUser.password})
@@ -40,9 +26,10 @@ describe('Novatics Challenge', () => {
           res.body.should.be.instanceOf(Object)
           res.body.message.should.equal('Successfully authenticated')
           res.body.should.have.properties('error', 'message', 'name', 'token')
+          done()
         })
     })
-    it('Should return login not found message', async () => {
+    it('Should return login not found message', done => {
       request(server)
         .post('/v1/authenticate')
         .send({ login: invalidUser.login, password: invalidUser.password})
@@ -53,9 +40,10 @@ describe('Novatics Challenge', () => {
           res.body.should.be.instanceOf(Object)
           res.body.message.should.equal('Email not found or password is invalid')
           res.body.should.have.properties('error', 'message')
+          done()
         })
     })
-    it('Should return 400 Bad Request when no parameters are informed', async () => {
+    it('Should return 400 Bad Request when no parameters are informed', done => {
       request(server)
         .post('/v1/authenticate')
         .send({ login: validUser.login })
@@ -66,9 +54,10 @@ describe('Novatics Challenge', () => {
           res.body.should.be.instanceOf(Object)
           res.body.should.have.properties('error', 'message')
           res.body.message.should.equal('Request validation failed: Parameter (password) is required')
+          done()
         })
     })
-    it('Should return 400 Bad Request when the password field is empty', async () => {
+    it('Should return 400 Bad Request when the password field is empty', done => {
       request(server)
         .post('/v1/authenticate')
         .send({ login: validUser.login, password: '' })
@@ -79,6 +68,7 @@ describe('Novatics Challenge', () => {
           res.body.should.be.instanceOf(Object)
           res.body.should.have.properties('error', 'message')
           res.body.message.should.equal('Request validation failed: Parameter (password) is too short (0 chars), minimum 1')
+          done()
         })
     })
   })
