@@ -28,7 +28,7 @@
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-plugin-import-helpers": "^1.0.2",
-    "mocha": "^7.1.2",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.3",
     "should": "^13.2.3",
     "sucrase": "^3.14.0",
